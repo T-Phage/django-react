@@ -66,7 +66,7 @@ class MyUserManager(BaseUserManager):
 
 class MyUser(AbstractBaseUser):
     userimage = models.FileField(
-        upload_to='img',
+        upload_to='img/',
         null=True,
         blank=True)
     username = models.CharField(
@@ -149,4 +149,4 @@ class MyUser(AbstractBaseUser):
 class TryImageUpload(models.Model):
     title = models.TextField()
     content = models.TextField()
-    file = models.ImageField(upload_to='img')
+    file = models.ImageField(upload_to='img/')
