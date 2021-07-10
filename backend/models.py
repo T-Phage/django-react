@@ -14,7 +14,7 @@ class Faculty(models.Model):
     )
 
     def __str__(self):
-        return str(self.faculty_name)
+        return self.faculty_name
 
     class Meta:
         verbose_name_plural = 'Faculties'
@@ -24,13 +24,12 @@ class Department(models.Model):
     dept_id = models.AutoField(primary_key=True)
     dept_name = models.CharField(
         max_length=100,
-        unique=True,
-        blank=True, default=''
+        unique=True, 
     )
     faculty = models.ForeignKey(Faculty, null=True, verbose_name="faculty", on_delete=models.SET_NULL)
 
     def __str__(self):
-        return str(self.dept_name)
+        return self.dept_name
 
 class MyUserManager(BaseUserManager):
     def create_user(self, email, username, password=None):
