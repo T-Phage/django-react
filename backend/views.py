@@ -112,7 +112,7 @@ class SaveUser(generics.GenericAPIView):
         image = fs.save(pic.name, pic)
 
         dept= Department.objects.get(dept_id=request.POST.get('department'))
-        user = MyUser.objects.create(
+        user = MyUser(
             username=request.POST.get('username'),
             email=request.POST.get('email'),
             userimage=f"img/{image}",
