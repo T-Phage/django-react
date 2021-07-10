@@ -169,7 +169,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/display/'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
