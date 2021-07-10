@@ -42,8 +42,8 @@ class CurrentUser(APIView):
         # print(Site.objects.get_current().domain)
         context = {
             'name': f"{request.user.firstname} {request.user.surname} {request.user.othername}",
-            'department': f"{request.user.department}",
-            'faculty': f"{request.user.department.faculty.faculty_name}",
+            'department': f"{request.user}",
+            'faculty': f"{request.user}",
             'admin': f"{request.user.is_admin}",
             'email': f"{request.user.email}",
             'username': f"{request.user}",
