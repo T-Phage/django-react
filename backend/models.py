@@ -13,8 +13,8 @@ class Faculty(models.Model):
         default=''
     )
 
-    # def __str__(self):
-    #     return str(self.faculty_name)
+    def __str__(self):
+        return str(self.faculty_name)
 
     class Meta:
         verbose_name_plural = 'Faculties'
