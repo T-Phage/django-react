@@ -65,7 +65,7 @@ class MyUserManager(BaseUserManager):
         return user
 
 class MyUser(AbstractBaseUser):
-    userimage = models.ImageField(
+    userimage = models.FileField(
         upload_to='img',
         null=True,
         blank=True)
