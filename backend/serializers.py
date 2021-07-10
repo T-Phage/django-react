@@ -25,7 +25,7 @@ class MyUserRegisterSerializer(serializers.ModelSerializer):
     firstname = serializers.CharField()
     surname = serializers.CharField()
     othername = serializers.CharField()
-    department = serializers.ChoiceField(choices=Department.objects.all())
+    # department = serializers.ChoiceField(choices=Department.objects.all())
     password = serializers.CharField(min_length=3, write_only=True)
     gender = serializers.ChoiceField(choices=GENDER_CHOICE)
 

@@ -102,7 +102,7 @@ class MyUser(AbstractBaseUser):
     )
     department = models.ForeignKey(
         Department,
-        verbose_name='department',
+        # verbose_name='department',
         null=True,
         on_delete=models.SET_NULL,
     )
