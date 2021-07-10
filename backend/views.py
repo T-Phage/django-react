@@ -33,13 +33,14 @@ class CurrentUser(APIView):
     def get(self, request):
         queryset = MyUser.objects.filter(username=request.user)
         serializer = CurrentUserSerializer(request.user)
-        # return Response(serializer.data)
-        # print("site")
-        # print(Site.objects.get_current().domain)
+    
+        othername=''
+        if request.user.othername != 'null':
+            othername=request.user.othername
         context = {
-            'name': f"{request.user.firstname} {request.user.surname} {request.user.othername}",
-            'department': f"{request.user}",
-            'faculty': f"{request.user}",
+            'name': f"{request.user.firstname} {request.user.surname} {othername}",
+            'department': f"{request.user.department}",
+            'faculty': f"{request.user.department.faculty}",
             'admin': f"{request.user.is_admin}",
             'email': f"{request.user.email}",
             'username': f"{request.user}",
