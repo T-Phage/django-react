@@ -1,7 +1,4 @@
-from django.db.models import query
-from django.db.models.base import Model
-from django.shortcuts import render
-from rest_framework_simplejwt.views import TokenObtainPairView
+
 from rest_framework import permissions, status, generics, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -9,7 +6,6 @@ from rest_framework.decorators import api_view
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAdminUser
 from django.core.files.storage import FileSystemStorage
-from django.contrib.auth import logout
 from .models import *
 from .serializers import *
 from django.contrib.sites.models import Site
@@ -128,24 +124,22 @@ class SaveUser(generics.GenericAPIView):
         )
         user.set_password(request.POST.get('password'))
         saved = user.save()
+        current_site = get_current_site(request)
+        send_mail(
+            'Thanks for subscribing to %s alerts' % current_site.name,
+            'Thanks for your subscription. We appreciate it.\n\n-The %s team.' % (
+                current_site.name,
+            ),
+            'editor@%s' % current_site.domain,
+            [user.email],
+        )
         
         if saved:
             print('error', )
             return Response({'message':'an error occured try again'}, status=status.HTTP_400_BAD_REQUEST)
         else: 
-            current_site = get_current_site(request)
-            send_mail(
-                'Thanks for subscribing to %s alerts' % current_site.name,
-                'Thanks for your subscription. We appreciate it.\n\n-The %s team.' % (
-                    current_site.name,
-                ),
-                'editor@%s' % current_site.domain,
-                [user.email],
-            )
             return Response({'message':'saved successfully'}, status=status.HTTP_201_CREATED)
             
-
-
 
 from rest_framework.parsers import MultiPartParser, FormParser
 

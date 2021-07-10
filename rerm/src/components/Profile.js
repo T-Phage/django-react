@@ -35,7 +35,7 @@ export default class Profile extends React.Component {
     }
 
     getCurentUser(){
-        fetch('http://127.0.0.1:8000/api/active/user/',{ 
+        fetch('https://testingmyapis.herokuapp.com/api/active/user/',{ 
             method : 'GET',
             mode : 'cors',
             cache : 'no-cache',
