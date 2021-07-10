@@ -7,14 +7,14 @@ from django.contrib.auth.models import (
 class Faculty(models.Model):
     faculty_id = models.AutoField(primary_key=True)
     faculty_name = models.CharField(
-        max_length=255,
+        max_length=100,
         unique=True,
         blank=True,
         default=''
     )
 
-    def __str__(self):
-        return str(self.faculty_name)
+    # def __str__(self):
+    #     return str(self.faculty_name)
 
     class Meta:
         verbose_name_plural = 'Faculties'
@@ -23,9 +23,9 @@ class Faculty(models.Model):
 class Department(models.Model):
     dept_id = models.AutoField(primary_key=True)
     dept_name = models.CharField(
-        max_length=255,
+        max_length=100,
         unique=True,
-        blank=True, default='-'
+        blank=True, default=''
     )
     faculty = models.ForeignKey(Faculty, null=True, verbose_name="faculty", on_delete=models.SET_NULL)
 

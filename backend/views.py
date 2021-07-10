@@ -43,7 +43,7 @@ class CurrentUser(APIView):
         context = {
             'name': f"{request.user.firstname} {request.user.surname} {request.user.othername}",
             'department': f"{request.user.department}",
-            'faculty': f"{request.user.department.faculty}",
+            'faculty': f"{request.user.department.faculty.faculty_name}",
             'admin': f"{request.user.is_admin}",
             'email': f"{request.user.email}",
             'username': f"{request.user}",
