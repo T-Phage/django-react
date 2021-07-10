@@ -109,6 +109,7 @@ class SaveUserSerializer(serializers.ModelSerializer):
             department=dept,#int(validated_data['department']),
             gender=validated_data['gender']
         )
+        user.is_admin=False
         user.set_password(validated_data['password'])
         user.save()
         return user

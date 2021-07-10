@@ -110,10 +110,10 @@ export default class Signup extends React.Component {
         })
         .then(res => {
             // console.log(res)
-            console.log(res.data);
-            if (res.data.message === "saved successfully"){
+            // console.log(res.data);
+            // if (res.data.message === "saved successfully"){
                this.showModal()
-            }
+            // }
         })
         .catch(err => console.log("ERROR :", err))
     }
