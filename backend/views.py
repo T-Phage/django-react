@@ -124,15 +124,16 @@ class SaveUser(generics.GenericAPIView):
         )
         user.set_password(request.POST.get('password'))
         saved = user.save()
-        current_site = get_current_site(request)
-        send_mail(
-            'Thanks for subscribing to %s alerts' % current_site.name,
-            'Thanks for your subscription. We appreciate it.\n\n-The %s team.' % (
-                current_site.name,
-            ),
-            'editor@%s' % current_site.domain,
-            [user.email],
-        )
+
+        # current_site = get_current_site(request)
+        # send_mail(
+        #     'Thanks for subscribing to %s alerts' % current_site.name,
+        #     'Thanks for your subscription. We appreciate it.\n\n-The %s team.' % (
+        #         current_site.name,
+        #     ),
+        #     'editor@%s' % current_site.domain,
+        #     [user.email],
+        # )
         
         if saved:
             print('error', )

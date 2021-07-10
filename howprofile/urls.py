@@ -23,7 +23,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('backend.urls')),
-    path('', TemplateView.as_view(template_name='index.html')),
+    # path('', TemplateView.as_view(template_name='index.html')),
     # path('dash', TemplateView.as_view(template_name='index.html')),
     # re_path(r'^$', TemplateView.as_view(template_name='index.html'))
 ]
@@ -32,5 +32,5 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += [re_path(r'', TemplateView.as_view(template_name='index.html'))]
 
 if settings.DEBUG:
-    # urlpatterns += [re_path('', TemplateView.as_view(template_name='index.html'))]
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # urlpatterns += [re_path(r'', TemplateView.as_view(template_name='index.html'))]
