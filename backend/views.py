@@ -116,7 +116,7 @@ class SaveUser(generics.GenericAPIView):
         user = MyUser(
             username=request.POST.get('username'),
             email=request.POST.get('email'),
-            userimage=f"img/{image}",
+            userimage=f"{image}",
             firstname=request.POST.get('firstname'),
             surname=request.POST.get('surname'),
             othername=request.POST.get('othername'),

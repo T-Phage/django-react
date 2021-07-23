@@ -1,0 +1,8 @@
+{
+  "name": "rerm",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
+
