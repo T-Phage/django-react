@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'backend.apps.BackendConfig',
     'django.contrib.sites',
+    'django_cleanup',
 
     'corsheaders',
     'rest_framework',
